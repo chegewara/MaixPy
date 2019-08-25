@@ -7,8 +7,6 @@
 #include "sysctl.h"
 #include "fpioa.h"
 
-#define ESP32_SPI_DEBUG 1
-
 // Cached values of retrieved data
 char ssid[32] = {0};
 uint8_t mac[32] = {0};

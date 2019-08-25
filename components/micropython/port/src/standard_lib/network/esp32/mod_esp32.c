@@ -42,7 +42,7 @@ STATIC mp_obj_t esp32_nic_ifconfig(mp_obj_t self_in) {
 }
 
 STATIC mp_obj_t esp32_nic_isconnected(mp_obj_t self_in) {
-    return mp_obj_new_bool(nic_connected);
+    return mp_obj_new_bool(esp32_spi_is_connected());
 }
 
 STATIC mp_obj_t esp32_nic_disconnect(mp_obj_t self_in) {
@@ -252,7 +252,7 @@ STATIC mp_obj_t esp32_make_new(const mp_obj_type_t *type, size_t n_args, size_t 
 
 STATIC mp_obj_t esp32_adc(mp_obj_t self_in)
 {
-    #define ESP32_ADC_CH_NUM_TEMP  (ESP32_ADC_CH_NUM+1)
+    #define ESP32_ADC_CH_NUM_TEMP  (ESP32_ADC_CH_NUM)
     uint16_t adc[ESP32_ADC_CH_NUM_TEMP] = {0};//TODO: 6 channel support!!!
 
     if (esp32_spi_get_adc_val(adc) == 0)
